@@ -79,8 +79,21 @@ const processFiles = (fileUrl) => {
 
 const pxToRes = (str) => {
   const reg = /(\d+)px/gi
-  let newStr = str.replace(reg, function (_x) {
-    return parseFloat(_x) / scale + 'rem'
+  let newStr = str.replace(reg, (_x) => {
+    if (Math.abs(parseFloat(_x)) === 0 || Math.abs(parseFloat(_x)) === 1) {
+      // 排除 0px 0 1px -1px -0px -0
+      return _x
+    }
+
+    let num = parseFloat(_x) / scale
+
+    if (String(num).length > 2) {
+      num = (parseFloat(_x) / scale).toFixed(
+        Math.min(String(num).length - 2, 2),
+      )
+    }
+
+    return num + 'rem'
   })
   return newStr
 }
