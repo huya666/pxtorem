@@ -1,6 +1,6 @@
 // const parseUrl = path.parse(fileUrl)
-// 如果是文件真接读取，检测文件格式，然后读取，如果目录那么要读取目录下面的所有的东西
-// 然后更改只更改 .css .less .scss .sass
+// 如果是文件，检测文件格式，读取，如果目录那么要读取目录下所有文件及目录
+// 更改 .css .less .scss .sass
 
 const fs = require('fs')
 const path = require('path')
@@ -8,8 +8,6 @@ const colors = require('colors')
 
 const { writeFile } = fs.promises
 let scale = 100
-
-// console.log(process.argv, '--')
 
 if (!process.argv[2]) {
   console.log('node input file path'.red)
