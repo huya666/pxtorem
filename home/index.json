@@ -1,9 +1,0 @@
-{
-  "window": {
-    "defaultTitle": "新职业在线学习平台"
-  },
-  "usingComponents": {
-    "recommendlist": "/components/recommendList/index",
-    "skeleton": "/components/skeleton/index"
-  }
-}
